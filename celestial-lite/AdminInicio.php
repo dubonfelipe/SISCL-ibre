@@ -38,6 +38,7 @@ if (!current_user_can('manage_course') and !current_user_can('administrator')) {
 		</div><!-- #secondary -->
 	<?php endif; ?>	
 	<section id="primary" class="span8">
+
 		<div id="content" role="main">
 			<?php if ( have_posts() ) : ?>
 				<?php /* Start the Loop */ ?>
@@ -51,15 +52,20 @@ if (!current_user_can('manage_course') and !current_user_can('administrator')) {
 	
 <?php else : // If the left sidebar is not selected - use this layout ?>
 	
-	<section id="primary" class="span8">
+	<section id="primary" >
+		<a id="touch-menu" class="mobile-menu" href="#"><i class="icon-reorder"></i>Menu</a>
+  
+   
 		<div id="content" role="main">
 			<?php if ( have_posts() ) : ?>
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( '/partials/content', get_post_format() ); ?>	
+					<?php get_template_part( '', get_post_format() ); ?>	
 				<?php endwhile; ?>	 
 			<?php endif; // end have_posts() check ?> 
-
+			<center>
+			<h1 style="text-align: center;"><strong>Bienvenido al Panel Inicial</strong></h1>
+<h3 style="text-align: center;">En el menú superior cuenta con los funciones principales del Administrador<img class="size-full wp-image-158 aligncenter" src="http://localhost/wordpress/wp-content/uploads/2017/10/images.png" alt="" width="239" height="176" /></h3></center>
 		</div><!-- #content -->
 	</section><!-- #primary -->
 	
