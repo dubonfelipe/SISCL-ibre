@@ -123,6 +123,8 @@
     if (current_user_can('manage_course') or current_user_can('administrator')) {
 	# code...
 	$usererror_msg = '
+	
+	
 			<nav>
     <ul class="menu">
    <li><a href="#"><i class="icon-home"></i>PRINCIPAL</a>
@@ -138,6 +140,15 @@
   <li><a  href="http://localhost/wordpress/formulario-de-inscripciones-administrador"><i class="icon-fixed-width icon-book"></i> ASIGNAR</a></li>
   </ul>
   </li>
+  <li><a  href="#"><i class="icon-user"></i>ADMINITRAR</a>
+   <ul class="sub-menu">
+  <li><a  href="#"><i class="icon-li icon-ok"></i> PROGRAMA</a>
+  </li>
+  <li><a  href="#"><i class="icon-fixed-width icon-pencil"></i> CURSO</a></li>
+  <li><a  href="#"><i class="icon-fixed-width icon-book"></i> CATEDRÁTICO</a></li>
+  </ul>
+  </li>
+  <li><a  href="#"><i class="icon-user"></i>GENERAR LISTAS</a></li>
   <li><a  href="http://localhost/wordpress/informacion_sistema"><i class="icon-user"></i>INFORMACION SISTEMA</a></li>
   </ul>
   </nav>
