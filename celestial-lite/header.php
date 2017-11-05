@@ -10,6 +10,7 @@
  * @license        license.txt
  */
  
+ include_once('wp-load.php');
 ?>
 <!DOCTYPE html>
 	<!--[if IE 7]>
@@ -39,6 +40,15 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+    
+     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="http://css3-mediaqueries-js.googlecode.com/files/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+	 
 
 		<!--- -->
 		 <!-- Bootstrap -->
@@ -57,7 +67,8 @@
 
 		   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/select2.min.js"></script>
-    
+ 
+    <script src="../js/menu.js" type="text/javascript"></script>
 
 	<?php wp_head(); ?>
 </head>
@@ -99,19 +110,44 @@
 				} 
 			?>				
 		</div>	
-							
-						<nav id="site-navigation" class="main-navigation span8" role="navigation" style="margin-top:<?php echo get_theme_mod( 'menumargin', '30px' ); ?>">
-							<h3 class="menu-toggle"><?php _e( 'Site Menu', 'celestial-lite' ); ?></h3>
-							<?php //wp_nav_menu( array( 'theme_location' => 'primary-menu', 'menu_class' => 'nav-menu' ) ); ?>
-						</nav><!-- #site-navigation -->
+								
+						
 						
 					</div>
 				</div>
 			</header>
 		
 <div id="st-socialbar-wrapper" style="background-color:<?php echo get_theme_mod( 'social_bg', '#393c3f' ); ?>; <?php if( get_theme_mod( 'hide_sociallines' ) == '') { ?>background-image: url('<?php echo get_template_directory_uri(); ?>/images/socialbar-bg.png');<?php } ?>">    
+    <?php
+
+    if (current_user_can('manage_course') or current_user_can('administrator')) {
+	# code...
+	$usererror_msg = '
+			<nav>
+    <ul class="menu">
+   <li><a href="#"><i class="icon-home"></i>PRINCIPAL</a>
+   <ul class="sub-menu">
+   <li><a href="http://localhost/wordpress/administrador/">MENU PRINCIPAL</a></li>
+   </ul>
+   </li>
+   <li><a  href="#"><i class="icon-user"></i>ASIGNACIONES</a>
+   <ul class="sub-menu">
+  <li><a  href="http://localhost/wordpress/confirmar-boleta"><i class="icon-li icon-ok"></i> CONFIRMAR ASIGNACION</a>
+  </li>
+  <li><a  href="http://localhost/wordpress/realizar-cambios-de-curso/"><i class="icon-fixed-width icon-pencil"></i> CAMBIOS DE ASIGNACION</a></li>
+  <li><a  href="http://localhost/wordpress/formulario-de-inscripciones-administrador"><i class="icon-fixed-width icon-book"></i> ASIGNAR</a></li>
+  </ul>
+  </li>
+  <li><a  href="http://localhost/wordpress/informacion_sistema"><i class="icon-user"></i>INFORMACION SISTEMA</a></li>
+  </ul>
+  </nav>
+	';
+		echo ''.$usererror_msg.'';
+	
+} ?>
     
-    
+
+
 		<div class="container">
 			<div id="st-socialbar">
             	<?php if( get_theme_mod( 'twitter_on' ) == '1') { ?>				
