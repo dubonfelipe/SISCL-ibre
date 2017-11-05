@@ -9,10 +9,12 @@ wp-content/upgrade/
 wp-content/uploads/
 wp-content/wp-cache-config.php
 wp-content/plugins/hello.php
+wp-content/themes/celestial-lite/include/Conn.inc.php
+celestial-lite/include/Conn.inc.php
+
 
 /.htaccess
 /license.txt
 /readme.html
 /sitemap.xml
 /sitemap.xml.gz
-
